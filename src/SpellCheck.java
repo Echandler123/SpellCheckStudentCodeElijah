@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 /**
  * Spell Check
  * A puzzle written by Zach Blick
  * for Adventures in Algorithms
  * At Menlo School in Atherton, CA
  *
- * Completed by: [YOUR NAME HERE]
+ * Completed by: [Elijah Chandler]
  * */
 
 public class SpellCheck {
@@ -18,7 +20,19 @@ public class SpellCheck {
      * @return String[] of all mispelled words in the order they appear in text. No duplicates.
      */
     public String[] checkWords(String[] text, String[] dictionary) {
+        String[] mispelledwords = new String[text.length];
+        int i =0;
+        for(String word : text){
+            i++;
+            if(word.length() > 45){
+                mispelledwords[i] = word;
+            }
+        }
+        for(int j = 0; j < dictionary.length; j++){
+            for(int k = 0; k < text.length; k++){
 
-        return null;
+            }
+        }
+        return mispelledwords;
     }
 }
