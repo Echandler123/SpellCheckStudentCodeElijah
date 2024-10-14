@@ -20,19 +20,29 @@ public class SpellCheck {
      * @return String[] of all mispelled words in the order they appear in text. No duplicates.
      */
     public String[] checkWords(String[] text, String[] dictionary) {
-        String[] mispelledwords = new String[text.length];
-        int i =0;
-        for(String word : text){
-            i++;
-            if(word.length() > 45){
-                mispelledwords[i] = word;
+        TST test = new TST();
+        for (int i = 0; i < dictionary.length; i++) {
+            test.insert(dictionary[i]);
+        }
+        ArrayList<String> Words = new ArrayList<String>();
+        TST misspelled = new TST();
+        for (int i = 0; i < text.length; i++) {
+            if (test.lookup(text[i]) == false) {
+                if (misspelled.lookup(text[i]) == false) {
+                    misspelled.insert(text[i]);
+                    Words.add(text[i]);
+                }
             }
         }
-        for(int j = 0; j < dictionary.length; j++){
-            for(int k = 0; k < text.length; k++){
+        String[] Final = new String[Words.size()];
+        for(int i = 0; i < Words.size(); i++) {
+            Final[i] = Words.get(i);
+        }
+        System.out.println(Words.size());
+        for(int i = 0; i < Final.length; i ++){
+            System.out.println(Final[i]);
+        }
 
-            }
-        }
-        return mispelledwords;
+        return Final;
     }
 }
