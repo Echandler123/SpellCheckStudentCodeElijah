@@ -107,7 +107,7 @@ public class TST {
     }
     public boolean lookup(String s) {
         NodeTST N = root;
-        // Go through each letter in the word
+        // Loop through each letter in the word
         for (int i = 0; i < s.length(); i++) {
             // Loop through until the current letter isn't null
             while (N != null) {
@@ -133,6 +133,7 @@ public class TST {
                     break;
                 }
             }
+            // If N is ever null then the word does exist
             if (N == null) {
                 return false;
             }

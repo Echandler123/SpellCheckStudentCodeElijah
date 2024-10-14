@@ -29,7 +29,7 @@ public class SpellCheck {
         }
         // Arraylist of mispelled words
         ArrayList<String> Words = new ArrayList<String>();
-        // Go through each word in the text
+        // Loop through each word in the text
         for (int i = 0; i < text.length; i++) {
             // Check if the word is in the dictonary TST and if it is already in the mispelled TST
             if (test.lookup(text[i]) == false) {
