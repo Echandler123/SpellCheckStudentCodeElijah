@@ -56,52 +56,79 @@ public class TST {
             root = null;
     }
     public void insert (String s) {
+        // Set root as first char in the word
         if (root == null) {
             this.root = new NodeTST(s.charAt(0));
         }
         NodeTST N = root;
-        for (int i = 0; i < s.length(); ) {  // no need to decrement 'i'
+        // Loop through each letter in the word
+        for (int i = 0; i < s.length(); ) {
+            // Checks if the current letter is the same as the next
             if (N.getValue() == s.charAt(i)) {
+                // Checks if the next letter would not be the last one in the word
                 if (i + 1 < s.length()) {
+                    // If the middle node is empty set the current letter as it
                     if (N.getEqual() == null) {
                         NodeTST Next = new NodeTST(s.charAt(i + 1));
                         N.setEqual(Next);
                     }
                     N = N.getEqual();
-                    i++;  // move to the next character
-                } else {
+                    // Moves to next character
+                    i++;
+                }
+                // If it is the last character set it as the end of the word and return
+                else {
                     N.setEndofWord();
                     return;
                 }
-            } else if (s.charAt(i) < N.getValue()) {
+            }
+            // Checks if the value of the next letter is less than the current
+            else if (s.charAt(i) < N.getValue()) {
+                // If the node on the lesser end is empty then add the next letter to it
                 if (N.getLess() == null) {
                     NodeTST Next = new NodeTST(s.charAt(i));
                     N.setLess(Next);
                 }
+                // Sets the next letter as the current
                 N = N.getLess();
-            } else {
+            }
+            // At this point the value of the next letter has to be more than the current
+            else {
+                // If the node on the greater end is empty then add the next letter to it
                 if (N.getMore() == null) {
                     NodeTST Next = new NodeTST(s.charAt(i));
                     N.setMore(Next);
                 }
+                // Sets the next letter as the current
                 N = N.getMore();
             }
         }
         N.setEndofWord();
     }
-
     public boolean lookup(String s) {
         NodeTST N = root;
+        // Go through each letter in the word
         for (int i = 0; i < s.length(); i++) {
+            // Loop through until the current letter isn't null
             while (N != null) {
+                // Go to lesser side if the next letter is less than the current one
                 if (s.charAt(i) < N.getValue()) {
+                    // Set the next letter as the lesser node of the current
                     N = N.getLess();
-                } else if (s.charAt(i) > N.getValue()) {
+                }
+                // Go to greater side if the next letter is greater than the current one
+                else if (s.charAt(i) > N.getValue()) {
+                    // Set the next letter as the greater node of the current
                     N = N.getMore();
-                } else {  // match found
-                    if (i == s.length() - 1) {  // last character
+                }
+                // Go to them middle if the next letter is equal to the current one
+                else {
+                    // If this is the end of the word return if it is the end of a word or not
+                    if (i == s.length() - 1) {
                         return N.isEndofWord();
                     }
+                    // Set the next letter as the equal node of the current if it is not the end
+                    // of the word
                     N = N.getEqual();
                     break;
                 }

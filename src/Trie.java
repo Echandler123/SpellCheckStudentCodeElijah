@@ -6,17 +6,17 @@ public class Trie {
             this.isWord = false;
             this.next = new Node[256];
         }
-        public boolean isWord(){
+        public boolean isWord() {
             return isWord;
         }
-        public void setWord(){
+        public void setWord() {
             isWord = true;
         }
-        public Node[] getNext(){
+        public Node[] getNext() {
             return next;
         }
     }
-    public Trie(){
+    public Trie() {
         root = new Node();
     }
     private Node root;
@@ -33,7 +33,7 @@ public class Trie {
     public boolean lookup(String s) {
         Node N = root;
         for (int i = 0; i < s.length(); i++) {
-            if(N.getNext()[s.charAt(i)] == null){
+            if(N.getNext()[s.charAt(i)] == null) {
                 return false;
             }
             N = N.getNext()[s.charAt(i)];
