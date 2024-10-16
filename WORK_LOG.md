@@ -12,7 +12,7 @@ Name: Elijah
 | Oct 14   | 10:30 - 11:00 |                                                                                                                  |
 | Oct 14   | 11:00 - 11:30 |                                                                                                                  |
 | Oct 14   | 11:30 - 12:00 |                                                                                                                  |
-| Oct 14   | 12:00 - 12:30 |                                                                                                                  |
+| Oct 14   | 12:00 - 12:30 |                                                    I added comments and made any small style adjustments needed. |
 |          |               |                                                                                                                  |
 
 
